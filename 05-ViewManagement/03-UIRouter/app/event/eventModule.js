@@ -34,7 +34,7 @@ angular.module('eventModule', [])
 }])
 .controller('EventCtrl', ['$scope', 'MainTitle',function ($scope,mainTitle) {
 	this.title = mainTitle.title;
-	console.log(this.title);
+	
 	this.menu=[
 		{
 			name:"Events",
