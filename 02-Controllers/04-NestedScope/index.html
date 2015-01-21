@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MVA Intro to Angular</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/portfolio-item.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="mainApp">
+
+    <!-- Navigation -->
+    <nav ng-controller="EventCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{title}}</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li  ng-click="setIndex(0)" ng-class="(index==0) ? 'active' : ''">
+                      <a href="#">{{menu[0].name}}</a>
+                    </li>
+                    <li ng-click="setIndex(1)"  ng-class="(index==1) ? 'active' : ''">
+                        <a href="#">{{menu[1].name}}</a>
+                    </li>
+
+                    <li><a href="#"> {{title}}</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">New York 
+                    <small>January 24th, 2015</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row" ng-controller="EventItemCtrl">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="assets/img/newyork_big.jpg" alt="">
+            </div>
+
+            <div ng-controller="EventTabCtrl" class="col-md-4">
+                <h3>{{itemTitle}}</h3>
+                <p>{{description}}</p>
+                <h3>Details</h3>
+               
+                <ul class="nav nav-tabs">
+                     <li ng-click="setTab(0)" class="active"><a href="#">Schedule</a>
+                     </li>
+                    <li ng-click="setTab(1)"><a href="">Tickets</a></li>
+                    <li ng-click="setTab(2)"><a href="">Location</a></li>
+                </ul>
+               <div ng-show="(tab==0)">Schedule Content for this event</div>
+               <div ng-show="(tab==1)">Tickets information for this event</div>
+               <div ng-show="(tab==2)">Location information for this event</div>
+            </div>
+              
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/sanfran_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>San Francisco</h4>
+                    <p>March 13,2015</p>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/seattle_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>Seattle</h4>
+                    <p>March 13,2015</p>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/brighton_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>Brighton</h4>
+                    <p>September 9,2015</p>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/london_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>London</h4>
+                    <p>September 8,2015</p>
+                </div>
+            </div>
+
+
+                <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/vancouver_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>Vancouver</h4>
+                    <p>February 24th</p>
+                </div>
+            </div>
+              <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="assets/img/newyork_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>New York City</h4>
+                    <p>January 24th</p>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Young Game Makers 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+<script src="./app/angular.min.js"></script>
+<script src="./app/mainApp.js"></script>
+
+<script src="./app/event/eventModule.js"></script>
+<script type="text/javascript">
+    console.log("angular object",angular);
+</script>
+</body>
+
+</html>

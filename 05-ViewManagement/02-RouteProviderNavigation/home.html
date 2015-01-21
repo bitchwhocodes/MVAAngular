@@ -1,0 +1,61 @@
+   <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">New York 
+                    <small>January 24th, 2015</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="assets/img/newyork_big.jpg" alt="">
+            </div>
+
+            <div ng-controller="EventTabCtrl as eventtab" class="col-md-4">
+                <h3>{{event.events[event.eventIndex].title}}</h3>
+                <p>{{event.events[event.eventIndex].description}}</p>
+                <h3>Details</h3>
+               
+                <ul class="nav nav-tabs">
+                     <li ng-click="eventtab.setTab(0)" class="active"><a href="#">Schedule</a>
+                     </li>
+                    <li ng-click="eventtab.setTab(1)"><a href="">Tickets</a></li>
+                    <li ng-click="eventtab.setTab(2)"><a href="">Location</a></li>
+                </ul>
+               <div ng-show="(eventtab.tab==0)">Schedule Content for this event</div>
+               <div ng-show="(eventtab.tab==1)">Tickets information for this event</div>
+               <div ng-show="(eventtab.tab==2)">Location information for this event</div>
+            </div>
+              
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div>
+            <div class="col-lg-12"><input type="text" ng-model="event.search" placeholder="Search by City"></div>
+            <event-item></event-item>
+
+    
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Young Game Makers 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>

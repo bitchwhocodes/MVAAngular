@@ -1,0 +1,9 @@
+<div ng-repeat="item in event.events | orderBy: 'date' | searchCity:event.search" class="col-sm-3 col-xs-6">
+                <a href="">
+                    <img class="img-responsive portfolio-item" ng-src="assets/img/{{item.imgName}}_small.jpg" alt="">
+                </a>
+                <div>
+                    <h4>{{item.title}}</h4>
+                    <p>{{item.date | date:'MMMM,dd yyyy'}}</p>
+                </div>
+            </div>

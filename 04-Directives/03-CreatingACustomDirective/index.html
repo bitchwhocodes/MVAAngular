@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MVA Intro to Angular</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/portfolio-item.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="mainApp" ng-controller="EventCtrl as event">
+
+  <div ng-include src="'app/event/header.html'"></div>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">New York 
+                    <small>January 24th, 2015</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="assets/img/newyork_big.jpg" alt="">
+            </div>
+
+            <div ng-controller="EventTabCtrl as eventtab" class="col-md-4">
+                <h3>{{event.events[event.index].title}}</h3>
+                <p>{{event.events[event.index].description}}</p>
+                <h3>Details</h3>
+               
+                <ul class="nav nav-tabs">
+                     <li ng-click="eventtab.setTab(0)" class="active"><a href="#">Schedule</a>
+                     </li>
+                    <li ng-click="eventtab.setTab(1)"><a href="">Tickets</a></li>
+                    <li ng-click="eventtab.setTab(2)"><a href="">Location</a></li>
+                </ul>
+               <div ng-show="(eventtab.tab==0)">Schedule Content for this event</div>
+               <div ng-show="(eventtab.tab==1)">Tickets information for this event</div>
+               <div ng-show="(eventtab.tab==2)">Location information for this event</div>
+            </div>
+              
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Projects</h3>
+            </div>
+            <div class="col-lg-12"><input type="text" ng-model="event.search" placeholder="Search by City"></div>
+            <event-item></event-item>
+
+    
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Young Game Makers 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+<script src="./app/angular.min.js"></script>
+
+<script src="./app/mainApp.js"></script>
+
+<script src="./app/event/eventModule.js"></script>
+
+<script type="text/javascript">
+    console.log("angular object",angular);
+</script>
+</body>
+
+</html>
